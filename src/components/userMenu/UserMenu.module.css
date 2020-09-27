@@ -1,0 +1,15 @@
+.menuBox {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+.greeting {
+  margin-right: 10px;
+  color: #139082;
+  font-size: 1rem;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 700;
+}
+.userName {
+  color: #ae50c2;
+}

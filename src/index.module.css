@@ -1,0 +1,55 @@
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #212121;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/images/beach-57e8d3444e_1280.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* https://pixabay.com/get/55e6d7414f53a514f6da8c7dda7936791c3cdbe05a526c48732f7bdd904bcd59b1_1280.jpg
+/* https://pixabay.com/get/55e9dc444f50ad14f6da8c7dda7936791c3cdbe05a526c48732f7bdd904bc25ab9_1280.jpg
+/*https://cdn.pixabay.com/photo/2020/08/31/09/33/beach-5531919_960_720.jpg
+.* https://pixabay.com/get/57e2d54a4c54ac14f6da8c7dda7936791c3cdbe05a526c48732f7bdd904ac75bba_1280.jpg
+ * Стили компонента App
+ */
+:global(.Text) {
+  margin-top: 10px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 1rem;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+}
+
+:global(.form) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 30px;
+}
+:global(.box) {
+  padding: 30px;
+}
+
+:global(.logo) {
+  padding-left: 30px;
+}
