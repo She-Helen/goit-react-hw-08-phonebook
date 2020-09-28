@@ -9,7 +9,6 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { getCurrentUser } from './redux/auth/authOperations';
 
-// const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView/RegisterView'));
 const LoginView = lazy(() => import('./views/LoginView'));
 const PhonebookView = lazy(() => import('./views/PhonebookView/PhonebookView'));
@@ -25,12 +24,6 @@ class App extends Component {
           <AppBar />
           <Suspense fallback={<CustomSpinner />}>
             <Switch>
-              {/* <PublicRoute
-                exact
-                path="/"
-                component={HomeView}
-                restricted={false}
-              /> */}
               <PrivateRoute
                 path="/contacts"
                 redirectTo="/login"

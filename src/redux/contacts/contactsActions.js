@@ -46,10 +46,10 @@ const removeContactSuccess = id => {
   };
 };
 
-const removeContactError = id => {
+const removeContactError = err => {
   return {
     type: REMOVECONTACTERROR,
-    payload: id,
+    payload: err,
   };
 };
 
@@ -67,10 +67,10 @@ const fetchContactsSuccess = items => {
   };
 };
 
-const fetchContactsError = items => {
+const fetchContactsError = err => {
   return {
     type: FECHCONTACTERROR,
-    payload: items,
+    payload: err,
   };
 };
 

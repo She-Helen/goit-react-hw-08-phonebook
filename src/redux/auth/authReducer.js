@@ -33,13 +33,31 @@ const token = (state = null, { type, payload }) => {
   }
 };
 
+const errorNotification = (errCode, type) => {
+  switch (errCode) {
+    case 400:
+      return type === authTypes.REGISTERERROR
+        ? 'Такой логин уже существует'
+        : 'Ошибка логина или пароля';
+    case 500:
+      return 'Ошибка сервера';
+    case 401:
+      return 'Нет заголовка с токеном';
+    case 404:
+      return 'Коллекции такого владельца не существует';
+    default:
+      return errCode;
+  }
+};
+
 const error = (state = null, { type, payload }) => {
   switch (type) {
     case authTypes.REGISTERERROR:
+      return errorNotification(payload, authTypes.REGISTERERROR);
     case authTypes.LOGINERROR:
     case authTypes.LOGOUTERROR:
     case authTypes.GETCURRENTUSERERROR:
-      return payload;
+      return errorNotification(payload);
     default:
       return state;
   }

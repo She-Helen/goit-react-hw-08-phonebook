@@ -31,7 +31,10 @@ const fetchContacts = () => dispatch => {
     .then(({ data }) => {
       dispatch(fetchContactsSuccess(data));
     })
-    .catch(err => dispatch(fetchContactsError(err)));
+    .catch(err => {
+      console.log(err);
+      dispatch(fetchContactsError(err));
+    });
 };
 
 const removeContact = id => dispatch => {

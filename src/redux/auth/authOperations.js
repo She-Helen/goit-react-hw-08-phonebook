@@ -16,7 +16,7 @@ const register = credentials => dispatch => {
       dispatch(authActions.registerSuccess(res.data));
       setToken(res.data.token);
     })
-    .catch(err => dispatch(authActions.registerError(err.message)));
+    .catch(err => dispatch(authActions.registerError(err.response.status)));
 };
 
 const login = credentials => dispatch => {
@@ -27,7 +27,10 @@ const login = credentials => dispatch => {
       dispatch(authActions.loginSuccess(res.data));
       setToken(res.data.token);
     })
-    .catch(err => dispatch(authActions.logoutError(err.message)));
+    .catch(err => {
+      console.log(err.response);
+      dispatch(authActions.loginError(err.response.status));
+    });
 };
 
 const logout = token => dispatch => {
@@ -38,7 +41,7 @@ const logout = token => dispatch => {
       unsetToken();
       dispatch(authActions.logoutSuccess());
     })
-    .catch(err => dispatch(authActions.logoutError(err.message)));
+    .catch(err => dispatch(authActions.logoutError(err.response.status)));
 };
 
 const getCurrentUser = () => (dispatch, getState) => {
@@ -57,7 +60,9 @@ const getCurrentUser = () => (dispatch, getState) => {
     .then(res => {
       dispatch(authActions.getCurrentUserSuccess(res.data));
     })
-    .catch(error => dispatch(authActions.getCurrentUserError(error.message)));
+    .catch(err =>
+      dispatch(authActions.getCurrentUserError(err.response.status)),
+    );
 };
 
 export { register, login, logout, getCurrentUser };
