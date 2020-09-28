@@ -13,8 +13,8 @@ const register = credentials => dispatch => {
   axios
     .post('/users/signup', credentials)
     .then(res => {
-      dispatch(authActions.registerSuccess(res.data));
       setToken(res.data.token);
+      dispatch(authActions.registerSuccess(res.data));
     })
     .catch(err => dispatch(authActions.registerError(err.response.status)));
 };
